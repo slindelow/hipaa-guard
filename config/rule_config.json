@@ -1,0 +1,140 @@
+{
+  "_comment": "HIPAA-Guard rule configuration. Edited by rule_config_updater.py based on false positive feedback.",
+  "version": "1.0.0",
+
+  "confidence_threshold_analyst": 0.85,
+  "max_fix_loop_iterations": 3,
+  "auto_apply_threshold": "low",
+
+  "rules": {
+    "PHI-001": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "PHI-002": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "PHI-003": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "PHI-004": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "PHI-005": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "PHI-006": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "CRED-001": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "CRED-002": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "CRED-003": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "FHIR-001": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "low",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "FHIR-002": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "low",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "FHIR-003": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "AUDIT-001": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "AUDIT-002": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "medium",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    },
+    "ENC-001": {
+      "enabled": true,
+      "severity_override": null,
+      "confidence_adjustment": 0.0,
+      "risk_tier": "high",
+      "fp_count_30d": 0,
+      "fp_rate_30d": 0.0
+    }
+  },
+
+  "severity_block_thresholds": {
+    "pre_commit": ["critical", "high"],
+    "ci": ["critical", "high"],
+    "manual": []
+  },
+
+  "fp_rate_auto_downgrade_threshold": 0.30,
+  "fp_rate_alert_threshold": 0.20
+}

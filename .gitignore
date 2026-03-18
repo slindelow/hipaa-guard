@@ -1,0 +1,25 @@
+# HIPAA-Guard — never commit these
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+
+# Ephemeral scan data
+.tmp/
+scan_history/
+false_positives.jsonl
+false_negatives.jsonl
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store

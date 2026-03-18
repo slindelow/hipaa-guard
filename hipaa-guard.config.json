@@ -1,0 +1,51 @@
+{
+  "_comment": "Project-level HIPAA-Guard configuration. Commit this file to your repo.",
+  "version": "1.0.0",
+
+  "project_name": "my-healthcare-app",
+
+  "fhir_targets": ["epic", "cerner"],
+
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-6",
+    "has_hipaa_baa": false,
+    "_baa_note": "Set has_hipaa_baa to true only if your Anthropic account has a signed BAA. If false, the system will use local LLM (Ollama) for all analysis to keep PHI on-premise."
+  },
+
+  "local_llm": {
+    "enabled_fallback": true,
+    "base_url": "http://localhost:11434",
+    "model": "llama3"
+  },
+
+  "notifications": {
+    "slack_webhook_env_var": "HIPAA_GUARD_SLACK_WEBHOOK",
+    "email_recipients": []
+  },
+
+  "scan": {
+    "exclude_paths": [
+      ".git",
+      ".tmp",
+      "node_modules",
+      "__pycache__",
+      "*.pyc",
+      "venv",
+      ".venv",
+      "dist",
+      "build"
+    ],
+    "include_extensions": [
+      ".py", ".js", ".ts", ".jsx", ".tsx",
+      ".java", ".go", ".rb", ".php",
+      ".json", ".yaml", ".yml", ".env.example",
+      ".sql", ".html", ".xml"
+    ],
+    "onboarding_mode": true,
+    "_onboarding_note": "When true, first run is survey-only (no blocking). Set to false after initial triage."
+  },
+
+  "custom_phi_patterns": [],
+  "_custom_phi_note": "Add project-specific PHI identifier patterns here as regex strings."
+}

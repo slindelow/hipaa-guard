@@ -1,0 +1,149 @@
+{
+  "_comment": "Package → BAA status registry. Community maintained. AVAILABLE = vendor offers HIPAA BAA. NOT_AVAILABLE = vendor confirmed no BAA. UNKNOWN = not researched. NOT_REQUIRED = package never touches PHI by design.",
+  "version": "1.0.0",
+  "last_updated": "2026-03-18",
+
+  "packages": {
+    "anthropic": {
+      "status": "AVAILABLE",
+      "notes": "Anthropic offers a HIPAA BAA for API customers on paid plans.",
+      "baa_url": "https://privacy.anthropic.com/",
+      "touches_phi": "only if you send PHI in prompts — use phi_safe_handler.py"
+    },
+    "openai": {
+      "status": "AVAILABLE",
+      "notes": "OpenAI offers BAA through their Enterprise tier.",
+      "baa_url": "https://openai.com/enterprise-privacy/",
+      "touches_phi": "only if you send PHI in prompts"
+    },
+    "twilio": {
+      "status": "AVAILABLE",
+      "notes": "Twilio offers a HIPAA BAA for eligible customers.",
+      "baa_url": "https://www.twilio.com/en-us/legal/hipaa",
+      "touches_phi": "if used for patient SMS/voice"
+    },
+    "sendgrid": {
+      "status": "AVAILABLE",
+      "notes": "SendGrid (Twilio) offers BAA for healthcare customers.",
+      "baa_url": "https://www.twilio.com/en-us/legal/hipaa",
+      "touches_phi": "if used for patient email"
+    },
+    "boto3": {
+      "status": "AVAILABLE",
+      "notes": "AWS services support HIPAA via BAA. Specific services listed in AWS documentation.",
+      "baa_url": "https://aws.amazon.com/compliance/hipaa-eligible-services-reference/",
+      "touches_phi": "if storing/processing PHI in AWS services"
+    },
+    "google-cloud-storage": {
+      "status": "AVAILABLE",
+      "notes": "Google Cloud supports HIPAA via BAA for eligible services.",
+      "baa_url": "https://cloud.google.com/security/compliance/hipaa",
+      "touches_phi": "if storing PHI"
+    },
+    "azure-storage-blob": {
+      "status": "AVAILABLE",
+      "notes": "Azure supports HIPAA via BAA.",
+      "baa_url": "https://azure.microsoft.com/en-us/solutions/industries/healthcare/",
+      "touches_phi": "if storing PHI"
+    },
+    "fhirclient": {
+      "status": "NOT_REQUIRED",
+      "notes": "Client library only — PHI handling depends on your code and the FHIR server.",
+      "touches_phi": "indirectly via FHIR data"
+    },
+    "fhir.resources": {
+      "status": "NOT_REQUIRED",
+      "notes": "Data model library only — no PHI transmitted.",
+      "touches_phi": "indirectly via FHIR data"
+    },
+    "requests": {
+      "status": "NOT_REQUIRED",
+      "notes": "HTTP library — PHI exposure depends on how it is used.",
+      "touches_phi": "indirectly"
+    },
+    "httpx": {
+      "status": "NOT_REQUIRED",
+      "notes": "HTTP library — PHI exposure depends on how it is used.",
+      "touches_phi": "indirectly"
+    },
+    "sqlalchemy": {
+      "status": "NOT_REQUIRED",
+      "notes": "ORM library — BAA required from database host, not this library.",
+      "touches_phi": "if database contains PHI"
+    },
+    "psycopg2": {
+      "status": "NOT_REQUIRED",
+      "notes": "PostgreSQL driver — BAA required from database host.",
+      "touches_phi": "indirectly"
+    },
+    "pymongo": {
+      "status": "NOT_REQUIRED",
+      "notes": "MongoDB driver — BAA required from MongoDB Atlas or host.",
+      "touches_phi": "indirectly"
+    },
+    "stripe": {
+      "status": "UNKNOWN",
+      "notes": "Stripe does not typically handle clinical PHI. BAA availability not confirmed for healthcare use cases involving PHI.",
+      "touches_phi": "billing only — typically not PHI"
+    },
+    "slack-sdk": {
+      "status": "AVAILABLE",
+      "notes": "Slack offers a HIPAA BAA for Enterprise Grid customers.",
+      "baa_url": "https://slack.com/intl/en-us/help/articles/1500001370202",
+      "touches_phi": "if sending PHI in Slack messages"
+    },
+    "pagerduty": {
+      "status": "AVAILABLE",
+      "notes": "PagerDuty offers a BAA for healthcare customers.",
+      "baa_url": "https://www.pagerduty.com/security/",
+      "touches_phi": "if alert payloads contain PHI"
+    },
+    "datadog": {
+      "status": "AVAILABLE",
+      "notes": "Datadog offers a BAA for healthcare/life sciences customers.",
+      "baa_url": "https://www.datadoghq.com/legal/hipaa/",
+      "touches_phi": "if logs/metrics contain PHI"
+    },
+    "sentry-sdk": {
+      "status": "AVAILABLE",
+      "notes": "Sentry offers a BAA for Business and Enterprise plans.",
+      "baa_url": "https://sentry.io/security/",
+      "touches_phi": "if error reports contain PHI — configure scrubbing"
+    },
+    "redis": {
+      "status": "NOT_REQUIRED",
+      "notes": "Redis client library — BAA required from Redis host (Redis Cloud has BAA).",
+      "touches_phi": "if caching PHI"
+    },
+    "celery": {
+      "status": "NOT_REQUIRED",
+      "notes": "Task queue library — BAA required from broker host.",
+      "touches_phi": "if task payloads contain PHI"
+    },
+    "pandas": {
+      "status": "NOT_REQUIRED",
+      "notes": "Data processing library — no data transmission.",
+      "touches_phi": "if processing PHI datasets locally"
+    },
+    "numpy": {
+      "status": "NOT_REQUIRED",
+      "notes": "Numerical library — no data transmission.",
+      "touches_phi": "no"
+    },
+    "flask": {
+      "status": "NOT_REQUIRED",
+      "notes": "Web framework — PHI exposure depends on your endpoint design.",
+      "touches_phi": "indirectly via HTTP requests"
+    },
+    "fastapi": {
+      "status": "NOT_REQUIRED",
+      "notes": "Web framework — PHI exposure depends on your endpoint design.",
+      "touches_phi": "indirectly via HTTP requests"
+    },
+    "django": {
+      "status": "NOT_REQUIRED",
+      "notes": "Web framework — PHI exposure depends on your design.",
+      "touches_phi": "indirectly via HTTP requests"
+    }
+  }
+}
