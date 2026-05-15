@@ -59,29 +59,33 @@ HIPAA-Guard runs a 7-agent pipeline triggered by git pre-commit hooks, CI/CD eve
 **Requirements:** Python 3.9+
 
 ```bash
-# Clone and scan a directory
-git clone https://github.com/slindelow/hipaa-guard
-cd hipaa-guard
+pip install hipaa-guard
+```
 
-python3 cli.py scan /path/to/your/healthcare/app
+```bash
+# Scan a directory
+hipaa-guard scan /path/to/your/healthcare/app
 
 # Install pre-commit hook (blocks commits with CRITICAL/HIGH violations)
-python3 cli.py install-hook
+hipaa-guard install-hook
 
 # Full repo audit + compliance document
-python3 cli.py audit
+hipaa-guard audit
 
 # Check dependency BAA status
-python3 cli.py baa
+hipaa-guard baa
 ```
 
 **Enable AI pipeline** (Analyst, Fix Agent, Educator, Reviewer):
 ```bash
+pip install hipaa-guard[ai]
 export ANTHROPIC_API_KEY=your_key_here
-python3 cli.py scan /path/to/your/app
+hipaa-guard scan /path/to/your/app
 ```
 
 Without an API key, the scanner runs standalone — fast, no API calls, catches all high-confidence violations.
+
+Scan history and feedback logs are stored in `~/.hipaa-guard/`. Per-project config lives in `hipaa-guard.config.json` at your repo root.
 
 ---
 
