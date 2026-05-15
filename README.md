@@ -1,5 +1,8 @@
 # HIPAA-Guard
 
+[![PyPI version](https://img.shields.io/pypi/v/hipaa-guard.svg)](https://pypi.org/project/hipaa-guard/)
+[![Python 3.9+](https://img.shields.io/pypi/pyversions/hipaa-guard.svg)](https://pypi.org/project/hipaa-guard/)
+
 A multi-agent AI system that scans healthcare software codebases for HIPAA violations at commit time. Catches PHI exposure, hardcoded FHIR credentials, overly broad OAuth scopes, missing audit controls, and more — before code ships.
 
 ---
